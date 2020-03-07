@@ -113,6 +113,7 @@ char get_button(void)
             return buttons[row][col-1];
         }
     }
+	return 0;
 }
 
 char get_new_button(void)
