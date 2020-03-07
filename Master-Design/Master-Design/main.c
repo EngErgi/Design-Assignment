@@ -1,4 +1,3 @@
-
 /*
  * Master-Design.c
  *
@@ -180,6 +179,73 @@ int main(void){
         }
     }
 }
+
+// All numbers listed below are all for examples and can be changed to suit needs
+
+//Sample Main Void (can be changed to your own preferences)
+
+/*int main(void){
+
+    // PD3 is now an output
+    DDRD |= (1 << PORTD3);
+
+    // OCR2A sets the frequency
+    OCR2A = 32;
+
+    // OCR2A/OCR2B sets the PWM%
+    OCR2B = 16;
+
+    // Set non-inverting mode
+    TCCR2A |= (1 << COM2B1);
+
+    // Set fast PWM Mode, OCR2A as TOP
+    TCCR2B |= (1 << WGM22);
+    TCCR2A |= (1 << WGM21) | (1 << WGM20);
+
+    // Set the prescalar to 128 and starts PWM
+    // Frequency = 16000000 / (128 * OCR2A)
+    // 128 = Prescalar from previous settings (CS22|CS20)
+    // Gives range of 500Hz to 126KHz   
+    // Adjusting the prescalar will allow us to get a wider ranges of tones
+    TCCR2B |= (1 << CS22) | (1 << CS20)
+
+    // Set an infite while loop for any type of musical sounds (Sample while loop)
+    while(1){
+
+        // We have a working Fast PWM (Two-tone sound)
+        OCR2A = 64;         // Set frequency of 64
+        _delay_ms(500);
+        OCR2A = 128;
+        _delay_ms(500);     // Set frequency of 128
+    }
+}
+
+// Example of making a song with the code
+int main2(void){
+
+    uint8_t song[] = {128, 64, 255, 64, 255, 16, 32};
+
+    for(unsigned int i = 0; i < sizeof(song); i++){
+
+        OCR2A = song[i];
+        _delay_ms(200);
+    }
+
+    // Done
+    DDRD = 0;
+
+    while(1){
+
+        ...;
+    }
+
+    // To see a good video about the speaker and making it sound less shit
+    // copy and paste the url below:
+    // https://www.youtube.com/watch?v=AkSm1W8xdKy 
+    
+}
+
+
 /* Notes
 Need to:
 When doing Admin code, delete previous password by setting array to 0.
