@@ -1,3 +1,4 @@
+
 /*
  * Master-Design.c
  *
@@ -183,6 +184,8 @@ int main(void){
 Need to:
 When doing Admin code, delete previous password by setting array to 0.
 scan function for new password code
+
 Curator code --> make new code array, inside the function we disable alarm.
 Silent alarm code --> make new code array, inside function, enable silent alarm.
 */
+
